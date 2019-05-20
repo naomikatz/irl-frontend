@@ -1,33 +1,167 @@
 .App {
   text-align: center;
+  min-height: 100%;
 }
+
+#navbar {
+  background: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .9));
+}
+
+
+/* The hero image */
+.hero-image {
+  background-image: url("./background.png");
+  min-height: 100%;
+  height: 823px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+
+}
+
+/* background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("./background.png"); */
+
+.Logo-container {
+  height: 100px;
+  width: 50%;
+  margin-top: 100px;
+}
+
+.Login {
+  margin-top: 200px;
+  /* margin-bottom: 300px; */
+}
+
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+  height: 25vmin;
   pointer-events: none;
+  -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(250, 250, 250, 0.1)));
+  /* -webkit-filter: drop-shadow(5px 5px 5px #222); */
+  filter: drop-shadow(5px 5px 5px #222);
+  /* mix-blend-mode: screen;
+  color: red; */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+#user-result-container {
+  position: relative;
+  width: 650px;
+  height: 175px;
+  margin-top: 575px;
+  margin-bottom: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+  overflow-x: scroll;
+  white-space: nowrap;
+  float: left;
+}
+
+.user-container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+
+/* search container */
+
+#search-container {
+  position: relative;
+  width: 330px;
+  height: auto;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-right: 190px;
+  margin-left: 0px;
+
+  float: left;
+
+}
+
+#search-bg {
+  /* Absolutely position it, but stretch it to all four corners, then put it just behind #search's z-index */
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  z-index: 98;
+
+  /* Pull the background 70px higher to the same place as #bg's */
+  background-position: center -70px;
+
+  -webkit-filter: blur(10px);
+  filter: url('/media/blur.svg#blur');
+  filter: blur(10px);
+}
+
+#search {
+  /* Put this on top of the blurred layer */
+
+  position: relative;
+  z-index: 99;
+  padding-top: 10px;
+  padding-right: 0px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  background: rgb(34,34,34); /* for IE */
+  background: rgba(0,0,0,0.3);
+
+}
+
+@media (max-width: 600px ) {
+  #bg { padding: 10px; }
+  #search-bg { background-position: center -10px; }
+}
+
+#search h2, #search h5, #search h5 a { text-align: center; color: #fefefe; font-weight: normal; }
+#search h2 { margin-bottom: 50px }
+#search h5 { margin-top: 70px }
+
+.item-container {
+  position: relative;
+  height: auto;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  margin-right: 0px;
+  margin-left: 15px;
+
+}
+
+#search-bar {
+  padding-bottom: 10px;
+}
+
+
+#login-container{
+  positon: realtive;
+  margin-top: 75px;
+  margin-left: 500px;
+}
+
+#login-text{
+  color: grey;
+}
+
+#signup-container{
+  position: realtive;
+  margin-top: 100px;
+  margin-left: 300px;
+  margin-right: 300px;
+  background: rgb(34,34,34); /* for IE */
+  background: rgba(34,34,34,0.2);
+}
+
+#signup-input{
+
+  positon: relative;
+  padding-bottom: 50px;
+  padding-top: 50px;
+  padding-left: 250px;
+}
+
+#sign-up-text{
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
