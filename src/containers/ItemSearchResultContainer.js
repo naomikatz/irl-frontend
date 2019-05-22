@@ -4,13 +4,20 @@ import ItemCard from '../components0/ItemCard'
 
 class ItemSearchResultsContainer extends React.Component {
 
+
 renderItems= () => {
-    return this.props.itemResults.map(item => {
-      return < ItemCard
-            key={item.id}
-            item={item}
-            handleItemCardClick={this.props.handleItemCardClick}
-        />
+  console.log(this.props.searchResultItems)
+    return this.props.searchResultItems.map(itemArray => {
+        return itemArray.map(item => {
+          console.log(item)
+          return < ItemCard
+                key={item.id}
+                item={item}
+                handleItemCardClick={this.props.handleItemCardClick}
+                handleAddtoCollection={this.props.handleAddtoCollection}
+                handleViewMap={this.props.handleViewMap}
+            />
+        })
       })
     }
 

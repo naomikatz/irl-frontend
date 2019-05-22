@@ -37,6 +37,7 @@ import { Button, Form } from 'semantic-ui-react'
 
 render(){
   return (
+    <div className="hero-image">
   <div id="login-container">
   <Form onSubmit={this.handleSubmit} >
     <Form.Field width={6}>
@@ -55,6 +56,7 @@ render(){
     Don’t have an account?<a>Sign up</a>
     </Form.Field>
   </Form>
+  </div>
   </div>
   )
 }

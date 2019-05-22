@@ -69,11 +69,13 @@ class App extends Component {
 render () {
     console.log('we heaaaa')
     return (
-      <div className="hero-image">
+
       <div className="App">
         < NavBar className="navbar" currentUser={this.state.currentUser} logOut={this.logOut} />
         <Switch>
-          <Route path='/search' component={ SearchPage } {...this.props} allItems={this.state.allItems} addItem={this.addItem}/>
+          <Route path='/search' render={(routeProps) => {
+            return <SearchPage {...routeProps} allItems={this.state.allItems} addItem={this.addItem} currentUser={this.state.currentUser} />
+            }} />
           <Route path='/login' render={(routeProps) => {
 							return <LoginPage{...routeProps} setCurrentUser={this.setCurrentUser}/>
 						}} />
@@ -86,7 +88,7 @@ render () {
           <Route exact path='/' component={ HomePage } />
         </Switch>
         </div>
-      </div>
+
     )
   }
 

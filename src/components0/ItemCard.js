@@ -4,31 +4,41 @@ import '../App.css';
 
 
 class ItemCard extends React.Component {
+  //
+  // handleClick = (event) => {
+  //   this.props.handleItemCardClick(this.props.item.id)
+  // }
 
-  handleClick = (event) => {
-    this.props.handleItemCardClick(this.props.item.id)
+  handleAddtoCollection = (item) => {
+    console.log(item)
+    this.props.handleAddtoCollection(item)
   }
 
-  render(){
-      console.log(this.props.item[0].image_url)
-    return (
+  handleViewMap = (item) => {
+    console.log(item)
+    this.props.handleViewMap(item)
+  }
 
+
+  render(){
+      console.log(this.props.item.image_url)
+    return (
       <div className="item-card">
         <Card >
           <Card.Content>
-
-            <Image floated='left' size='tiny' src={this.props.item[0].image_url} />
-            <Card.Header> {this.props.item[0].item_name} </Card.Header>
+            <Image floated='left' size='tiny' src={this.props.item.image_url} />
+            <Card.Header> {this.props.item.item_name} </Card.Header>
+            <Card.Meta>Merchants: Ikea, Wayfair.com, Overstock.com, West Elm, Macy's</Card.Meta>
           </Card.Content>
           <Card.Content extra>
             <div className='ui mini three buttons'>
               <Button basic color='yellow'>
                 Save
               </Button>
-              <Button basic color='yellow'>
+              <Button basic color='yellow' onClick={ () => this.handleViewMap(this.props.item)} >
                 View Map
               </Button>
-              <Button basic color='yellow'>
+              <Button onClick={ () => this.handleAddtoCollection(this.props.item)} basic color='yellow'>
                 Add to My Collection
               </Button>
             </div>

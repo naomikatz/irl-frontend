@@ -54,6 +54,7 @@ class SignupPage extends React.Component {
     console.log('we in da signup page')
     console.log(this.props)
     return (
+      <div className="hero-image">
       <div id="signup-container">
         <div id="signup-input">
           <Form onSubmit={this.handleSubmit} >
@@ -91,6 +92,7 @@ class SignupPage extends React.Component {
             </Form.Field>
           </Form>
         </div>
+      </div>
       </div>
     )
   }

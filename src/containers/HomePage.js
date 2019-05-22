@@ -11,6 +11,7 @@ export default class HomePage extends Component {
   render() {
     console.log('we in da homepage')
     return (
+    <div className="hero-image">
       <div>
         <Container className="Logo-container">
           <img src={logo} alt={"logo"} className="App-logo"/>
@@ -26,6 +27,7 @@ export default class HomePage extends Component {
             </Link>
           </Button.Group>
         </Container>
+        </div>
       </div>
     )
   }
