@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button, Form, Checkbox } from 'semantic-ui-react'
+import LocationSearchInput from './LocationSearchInput'
 
 
 class SignupPage extends React.Component {
@@ -74,7 +75,7 @@ class SignupPage extends React.Component {
               <input onChange={this.handleChange} type="password" name="passwordConfirmation" value={this.state.passwordConfirmation} placeholder='Password Confirmation' />
             </Form.Field>
             <Form.Field width={8}>
-              <input onChange={this.handleChange} name="full_address" value={this.state.full_address} placeholder='Full Address' />
+            <  LocationSearchInput onChange={this.handleChange} name="full_address" value={this.state.full_address} />
             </Form.Field>
             <Form.Field width={8}>
               <input onChange={this.handleChange} name="city" value={this.state.city} placeholder='City' />

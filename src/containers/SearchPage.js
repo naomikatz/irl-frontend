@@ -29,7 +29,8 @@ componentDidMount () {
   .then( ( [res1, res2] ) => Promise.all( [res1.json(), res2.json()] ) )
     .then( ( [data1, data2] ) => this.setState({
       allItems: data1,
-      allUsers: data2
+      allUsers: data2,
+      searchResultItems: data1
     }))
 }
 
@@ -40,7 +41,7 @@ handleSearchChange = (event) => {
         console.log(filteredItems)
         this.setState(
           {
-            searchResultItems: [...this.state.searchResultItems, filteredItems]
+            searchResultItems: filteredItems
           }
         )
     }
@@ -97,11 +98,11 @@ handleViewMap = item => {
       <div className="search-page">
 
       <div>
-        < SearchContainer handleViewMap={this.handleViewMap} handleAddtoCollection={this.handleAddtoCollection} handleSearchChange={this.handleSearchChange} searchResultItems={this.state.searchResultItems} handleSubmitNewItem={this.handleSubmitNewItem}/>
-        < MyMap  />
+        < MyMap nearbyUsers={this.state.nearbyUsers} />
           <div id="user-result-container">
             < UserSearchResultContainer nearbyUsers={this.state.nearbyUsers}/>
           </div>
+          < SearchContainer handleViewMap={this.handleViewMap} handleAddtoCollection={this.handleAddtoCollection} handleSearchChange={this.handleSearchChange} searchResultItems={this.state.searchResultItems} handleSubmitNewItem={this.handleSubmitNewItem}/>
       </div>
       </div>
     )

@@ -74,56 +74,22 @@
 
 
 
-/* search container */
-
 #search-container {
   position: relative;
-  width: 330px;
-  height: 100%;
+  width: auto;
+  height: auto;
   margin-top: 0px;
   margin-bottom: 0px;
-  margin-right: 190px;
+  margin-right: 0px;
   margin-left: 0px;
-
-  float: left;
-
 }
 
-#search-bg {
-  /* Absolutely position it, but stretch it to all four corners, then put it just behind #search's z-index */
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-  z-index: 98;
-  height: 500px;
-  width: 330px;
-
-  /* Pull the background 70px higher to the same place as #bg's */
-  background-position: center -70px;
-
-  -webkit-filter: blur(10px);
-  filter: url('/media/blur.svg#blur');
-  filter: blur(10px);
+#search-bar {
+  margin-left: 200px;
+  margin-right: 200px;
 }
 
-#search {
-  /* Put this on top of the blurred layer */
 
-  position: relative;
-  z-index: 99;
-  padding-top: 10px;
-  padding-right: 0px;
-  padding-bottom: 10px;
-  padding-left: 10px;
-  background: rgb(34,34,34); /* for IE */
-  background: rgba(0,0,0,0.3);
-  height: 680px;
-  width: 330px;
-  overflow-y: scroll;
-
-}
 
 @media (max-width: 600px ) {
   #bg { padding: 10px; }
@@ -140,12 +106,13 @@
   margin-top: 25px;
   margin-bottom: 10px;
   margin-right: 0px;
-  margin-left: 12px;
+  margin-left: 100px;
 
 }
 
 .item-card {
   padding-bottom: 15px;
+  padding-left: 15px;
 }
 
 #search-bar {
@@ -185,9 +152,16 @@
 }
 
 #mapid{
-  margin-top: 0px;
+  margin-top: 20px;
   margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
   height: 400px;
   width: 800px;
   background-color: #000;
+}
+
+#filter-container{
+  margin-left: 500px;
+  margin-right: auto;
 }

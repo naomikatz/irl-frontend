@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import SearchForm from '../components0/SearchForm'
 import ItemSearchResultContainer from './ItemSearchResultContainer'
 import NewItemModal from '../components0/NewItemModal'
+import ItemFilterContainer from './ItemFilterContainer'
 
 
 export default class SearchContainer extends Component {
@@ -15,6 +16,7 @@ export default class SearchContainer extends Component {
               <div id="search">
                 < SearchForm handleSearchChange={this.props.handleSearchChange} className="search-form"/>
                 < NewItemModal handleSubmitNewItem={this.props.handleSubmitNewItem}/>
+                < ItemFilterContainer />
                 < ItemSearchResultContainer handleViewMap={this.props.handleViewMap} handleAddtoCollection={this.props.handleAddtoCollection} searchResultItems={this.props.searchResultItems}/>
               </div>
           </div>

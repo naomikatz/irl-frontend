@@ -7,7 +7,7 @@ export default class SearchForm extends Component {
     return (
       <div id="search-bar">
       <Input
-        icon='eye'
+        fluid icon='eye'
         iconPosition='left'
         placeholder='Search items...'
         onChange={this.props.handleSearchChange}

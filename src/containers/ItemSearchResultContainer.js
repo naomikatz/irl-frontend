@@ -7,8 +7,8 @@ class ItemSearchResultsContainer extends React.Component {
 
 renderItems= () => {
   console.log(this.props.searchResultItems)
-    return this.props.searchResultItems.map(itemArray => {
-        return itemArray.map(item => {
+    return this.props.searchResultItems.map(item => {
+
           console.log(item)
           return < ItemCard
                 key={item.id}
@@ -17,7 +17,7 @@ renderItems= () => {
                 handleAddtoCollection={this.props.handleAddtoCollection}
                 handleViewMap={this.props.handleViewMap}
             />
-        })
+
       })
     }
 
@@ -28,9 +28,7 @@ renderItems= () => {
         <Card.Group>
           <Grid>
             <Grid.Row columns={1}>
-              <Grid.Column >
-                {this.renderItems()}
-              </Grid.Column>
+                {this.renderItems()}      
             </Grid.Row>
           </Grid>
         </Card.Group>

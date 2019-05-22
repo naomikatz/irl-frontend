@@ -22,12 +22,7 @@ render() {
         />
         </Link>
         <Menu.Item
-          name='Discover'
-          active={activeItem === 'Discover'}
-          onClick={this.handleItemClick}
-        />
-        <Menu.Item
-          name='New'
+          name='About'
           active={activeItem === 'New'}
           onClick={this.handleItemClick}
         />
