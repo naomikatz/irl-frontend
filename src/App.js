@@ -7,6 +7,8 @@ import LoginPage from './containers/LoginPage'
 import SignupPage from './containers/SignupPage'
 import SearchPage from './containers/SearchPage'
 import ProfilePage from './containers/ProfilePage'
+import MetricsPage from './containers/MetricsPage'
+import AccountPage from './containers/AccountPage'
 
 
 
@@ -85,6 +87,13 @@ render () {
           <Route path='/profile' render={(routeProps) => {
 							return <ProfilePage {...routeProps} updateUser={this.updateUser} currentUser={this.state.currentUser}/>
 						}} />
+            <Route path='/metrics' render={(routeProps) => {
+  							return <MetricsPage {...routeProps} currentUser={this.state.currentUser}/>
+  						}} />
+            }} />
+            <Route path='/account' render={(routeProps) => {
+                return <AccountPage {...routeProps} currentUser={this.state.currentUser}/>
+              }} />
           <Route exact path='/' component={ HomePage } />
         </Switch>
         </div>

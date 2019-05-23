@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button, Form } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 
   class LoginPage extends React.Component {
   	state = {
@@ -52,9 +53,14 @@ render(){
     <Form.Field width={6} >
     <Button type='submit'>Submit</Button>
     </Form.Field>
+
     <Form.Field width={6}>
-    Don’t have an account?<a>Sign up</a>
+    Don’t have an account?
+    <Link to='/signup' currentUser={this.props.currentUser}>
+    <a>Sign up</a>
+    </Link>
     </Form.Field>
+
   </Form>
   </div>
   </div>

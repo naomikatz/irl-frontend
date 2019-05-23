@@ -27,11 +27,13 @@ render() {
           onClick={this.handleItemClick}
         />
         <Menu.Menu position='right'>
+        <Link to='/profile'>
         <Menu.Item
           name={this.props.currentUser ? this.props.currentUser.name : null}
           active={this.props.currentUser ? activeItem === 'Current User' : null}
           onClick={this.handleItemClick}
         />
+        </Link>
 
           <Menu.Item
             name={this.props.currentUser ? 'logout' : null}

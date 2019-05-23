@@ -16,7 +16,7 @@ class ItemCard extends React.Component {
 
   handleViewMap = (item) => {
     console.log(item)
-    this.props.handleViewMap(item)
+    this.props.handleViewMap()
   }
 
 

@@ -5,7 +5,7 @@ import MetricsContainer from "./MetricsContainer"
 import { Link } from 'react-router-dom'
 
 
-class ProfilePage extends React.Component {
+class AccountPage extends React.Component {
 
 
 	render(){
@@ -15,14 +15,11 @@ class ProfilePage extends React.Component {
 			return (
 				<div className="profile-page">
 				<div> {currentUser.name} </div>
-				<div id="account-info-div">
-					<Link to='/account' currentUser={this.props.currentUser}>
-			    	<a>Account Info</a>
-		    	</Link>
-				</div>
 				<div>
 					<ProfilePic currentUser = {this.props.currentUser} />
-					<MetricsContainer currentUser={this.props.currentUser}/>
+				</div>
+				<div>
+					Name, Address, Avatar
 				</div>
 				</div>
 			)
@@ -32,8 +29,4 @@ class ProfilePage extends React.Component {
 	}
 }
 
-export default ProfilePage
-
-// <UserCollectionContainer />
-// <WantToSeeItemsContainer />
-// <SeenItemsContainer />
+export default AccountPage
