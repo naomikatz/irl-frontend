@@ -1,11 +1,9 @@
 import React from 'react'
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
-import L from 'leaflet'
-import Geocode from "react-geocode"
 
 export default class MyMap extends React.Component {
 
-  
+
 
   render() {
      return (

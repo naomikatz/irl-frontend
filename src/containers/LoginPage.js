@@ -57,7 +57,7 @@ render(){
     <Form.Field width={6}>
     Don’t have an account?
     <Link to='/signup' currentUser={this.props.currentUser}>
-    <a>Sign up</a>
+    <div>Sign up</div>
     </Link>
     </Form.Field>
 

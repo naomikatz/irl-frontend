@@ -17,7 +17,7 @@ class ProfilePage extends React.Component {
 				<div> {currentUser.name} </div>
 				<div id="account-info-div">
 					<Link to='/account' currentUser={this.props.currentUser}>
-			    	<a>Account Info</a>
+			    	<div>Account Info</div>
 		    	</Link>
 				</div>
 				<div>

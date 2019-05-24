@@ -1,6 +1,8 @@
 import React from 'react'
 import ProfilePic from "../components0/ProfilePic"
 import UserItemProfitContainer from "./UserItemProfitContainer"
+import StatContainer from "./StatContainer"
+import Chart from "../components0/Chart"
 import { Loader } from 'semantic-ui-react'
 
 
@@ -15,7 +17,8 @@ class MetricsPage extends React.Component {
 			<div className="metrics-page">
 			<div>
 				<ProfilePic currentUser = {this.props.currentUser} />
-		    Total profit: $700
+				<StatContainer />
+				<Chart />
 	      <UserItemProfitContainer currentUser={this.props.currentUser}/>
 			</div>
 			</div>

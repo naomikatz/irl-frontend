@@ -180,23 +180,54 @@
 }
 
 #filter-container{
-  margin-left: 500px;
-  margin-right: auto;
+  /* margin-left: 500px;
+  margin-right: auto; */
+  height: 300px;
 }
 
 .user-item-profit-container{
-  margin-top: 100px;
+  margin-top: 10px;
+  padding-top: 25px;
+  padding-bottom: 200px;
+
 }
 
 #useritemprofittitle{
   padding-bottom: 10px;
+  font-size: 30px;
 }
 
 #useritemprofitfilter{
   padding-bottom: 30px;
 }
 
+#profit-item-card-container{
+  margin-left: 200px;
+}
+
+.user-item-card{
+  padding-left: 10px;
+}
+
+
 #account-info-div{
   padding-top: 5px;
-  padding-bottom: 10px;
+  padding-bottom: 5px;
+}
+
+#stat-container{
+  margin-left: 370px;
+  margin-right: auto;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+#metric-page-profile-pic{
+  padding-top: 15px;
+}
+
+#chart{
+  padding-top: 40px;
+  margin-left: 200px;
+  color: white;
 }

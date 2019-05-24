@@ -1,5 +1,5 @@
 import React from 'react'
-import { Loader, Grid, Segment, Image } from 'semantic-ui-react'
+import { Grid, Segment, Image } from 'semantic-ui-react'
 
 class ProfilePic extends React.Component {
 
@@ -7,7 +7,7 @@ class ProfilePic extends React.Component {
 
 	render(){
 			return (
-				<Grid columns={2} centered>
+				<Grid columns={2} centered id="metric-page-profile-pic" >
 					<Grid.Column width={3}>
 						<Segment>
 							<Image src={this.props.currentUser.avatar_url} fluid />

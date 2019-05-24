@@ -15,6 +15,7 @@ class UserItemProfitContainer extends React.Component {
             return < UserItemCard
                   key={item.id}
                   item={item}
+
               />
         })
       }
@@ -26,9 +27,9 @@ class UserItemProfitContainer extends React.Component {
         <div id="useritemprofittitle" > My Items </div>
         < ItemFilterContainer />
         <div id="useritemprofitfilter"> SORT BY: most seen items || highest profit items </div>
-          <Card.Group>
+          <Card.Group id="profit-item-card-container">
             <Grid>
-              <Grid.Row columns={1}>
+              <Grid.Row columns={1} >
                   {this.renderItems()}
               </Grid.Row>
             </Grid>
