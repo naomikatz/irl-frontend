@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import { Button, Modal } from 'semantic-ui-react'
-import NewItemForm from './NewItemForm'
+import { Button, Modal, Grid, Segment, Image } from 'semantic-ui-react'
 
 
-class NewItem extends Component {
+class SelectedItemModal extends Component {
   state = { open: false }
 
   show = dimmer => () => this.setState({ dimmer, open: true })
@@ -14,15 +13,17 @@ class NewItem extends Component {
 
     return (
       <div>
-        <Button compact onClick={this.show('blurring')}>Add an Item</Button>
+        <Button mini compact basic color='white' onClick={this.show('blurring')}>View Item</Button>
         <Modal dimmer={dimmer} open={open} onClose={this.close}>
-          <Modal.Header>Add a New Item</Modal.Header>
-          <Modal.Content >
-            <NewItemForm handleSubmitNewItem={this.props.handleSubmitNewItem}/>
-          </Modal.Content>
+                <Segment>
+                <strong>{this.props.item.item_name}</strong>
+                  <Image src={this.props.item.image_url} fluid />
+
+                </Segment>
+
           <Modal.Actions>
             <Button color='black' onClick={this.close}>
-              Cancel
+              Close
               </Button>
           </Modal.Actions>
         </Modal>
@@ -31,4 +32,4 @@ class NewItem extends Component {
   }
 }
 
-export default NewItem
+export default SelectedItemModal

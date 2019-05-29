@@ -41,6 +41,9 @@ class ItemCard extends React.Component {
               <Button onClick={ () => this.handleAddtoCollection(this.props.item)} basic color='yellow'>
                 Add to My Collection
               </Button>
+              <Button onClick={ () => this.handleAddtoCollection(this.props.item)} basic color='yellow'>
+                View Item
+              </Button>
             </div>
           </Card.Content>
         </Card>

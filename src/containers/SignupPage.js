@@ -3,14 +3,16 @@ import { Button, Form, Checkbox } from 'semantic-ui-react'
 import LocationSearchInput from './LocationSearchInput'
 
 
+
 class SignupPage extends React.Component {
 
   state = {
 		name: "",
 		email: "",
 		password: "",
-    passwordConfirmation: "",
-		full_address: "",
+    full_address: "",
+		latitude: '',
+    longitude: '',
     city: "",
     avatar_url: ""
 	}
@@ -21,6 +23,15 @@ class SignupPage extends React.Component {
 			[event.target.name]: event.target.value
 		})
 	}
+
+  handleAddress = (address) => {
+    console.log(address.lat)
+    this.setState({
+      full_address: address,
+      latitude: address.lat,
+      longitude: address.lng
+    })
+}
 
 	createUser = () => {
     console.log(this.state)
@@ -43,13 +54,6 @@ class SignupPage extends React.Component {
 		})
 	}
 
-	handleSubmit = () => {
-		if(this.state.password === this.state.passwordConfirmation){
-			this.createUser()
-		} else {
-			alert("Passwords don't match!")
-		}
-	}
 
   render() {
     console.log('we in da signup page')
@@ -58,7 +62,7 @@ class SignupPage extends React.Component {
       <div className="hero-image">
       <div id="signup-container">
         <div id="signup-input">
-          <Form onSubmit={this.handleSubmit} >
+          <Form onSubmit={this.createUser} >
           <Form.Field width={8}>
             <h1 id="sign-up-text">SIGN UP</h1>
           </Form.Field>
@@ -72,10 +76,8 @@ class SignupPage extends React.Component {
               <input onChange={this.handleChange} type="password" name="password" value={this.state.password} placeholder='Password' />
             </Form.Field>
             <Form.Field width={8}>
-              <input onChange={this.handleChange} type="password" name="passwordConfirmation" value={this.state.passwordConfirmation} placeholder='Password Confirmation' />
-            </Form.Field>
-            <Form.Field width={8}>
-            <  LocationSearchInput onChange={this.handleChange} name="full_address" value={this.state.full_address} />
+            <  LocationSearchInput name="full_address" value={this.state.full_address} handleAddress={this.handleAddress}/>
+
             </Form.Field>
             <Form.Field width={8}>
               <input onChange={this.handleChange} name="city" value={this.state.city} placeholder='City' />

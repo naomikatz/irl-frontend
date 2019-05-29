@@ -9,13 +9,16 @@ import SearchPage from './containers/SearchPage'
 import ProfilePage from './containers/ProfilePage'
 import MetricsPage from './containers/MetricsPage'
 import AccountPage from './containers/AccountPage'
+import ItemPage from './containers/ItemPage'
 
 
 
 class App extends Component {
 
   state = {
-  		currentUser: null
+  		currentUser: null,
+      selectedItem: null,
+      selectedItemId: null
   	}
 
     logOut = () => {
@@ -26,6 +29,14 @@ class App extends Component {
 			this.props.history.push("/login")
 		})
 	}
+
+  logIn = () => {
+    this.setState({
+      currentUser: null
+    }, () => {
+      this.props.history.push("/login")
+    })
+  }
 
 
 
@@ -59,6 +70,16 @@ class App extends Component {
 		}
 	}
 
+  setCreatedItemState = item => {
+    this.setState({
+      selectedItem: item.item,
+      selectedItemId: item.item.id
+    }, () => {
+      this.props.history.push(`/items/${item.item.id}`)
+    })
+  }
+
+
 	setCurrentUser = (response) => {
 		this.setState({
 			currentUser: response.user
@@ -73,10 +94,10 @@ render () {
     return (
 
       <div className="App">
-        < NavBar className="navbar" currentUser={this.state.currentUser} logOut={this.logOut} />
+        < NavBar className="navbar" currentUser={this.state.currentUser} logOut={this.logOut} logIn={this.logIn} />
         <Switch>
           <Route path='/search' render={(routeProps) => {
-            return <SearchPage {...routeProps} allItems={this.state.allItems} addItem={this.addItem} currentUser={this.state.currentUser} />
+            return <SearchPage {...routeProps} allItems={this.state.allItems} addItem={this.addItem} currentUser={this.state.currentUser} setCreatedItemState={this.setCreatedItemState}/>
             }} />
           <Route path='/login' render={(routeProps) => {
 							return <LoginPage{...routeProps} setCurrentUser={this.setCurrentUser}/>
@@ -94,6 +115,9 @@ render () {
             <Route path='/account' render={(routeProps) => {
                 return <AccountPage {...routeProps} currentUser={this.state.currentUser}/>
               }} />
+              <Route path='/items/:id' render={(routeProps) => {
+                  return <ItemPage {...routeProps} currentUser={this.state.currentUser} item={this.state.selectedItem}/>
+                }} />
           <Route exact path='/' component={ HomePage } />
         </Switch>
         </div>
@@ -102,5 +126,6 @@ render () {
   }
 
 }
+
 
 export default App;

@@ -1,6 +1,8 @@
 import React from 'react'
 import { Card, Grid } from 'semantic-ui-react'
 import ItemCard from '../components0/ItemCard'
+import ItemCard2 from '../components0/ItemCard2'
+import StackGrid from "react-stack-grid";
 
 class ItemSearchResultsContainer extends React.Component {
 
@@ -10,12 +12,13 @@ renderItems= () => {
     return this.props.searchResultItems.map(item => {
 
           console.log(item)
-          return < ItemCard
+          return < ItemCard2
                 key={item.id}
                 item={item}
                 handleItemCardClick={this.props.handleItemCardClick}
                 handleAddtoCollection={this.props.handleAddtoCollection}
                 handleViewMap={this.props.handleViewMap}
+                handleViewItem={this.props.handleViewItem}
             />
 
       })
@@ -24,15 +27,13 @@ renderItems= () => {
 
   render(){
     return (
-      <div className="item-container">
-        <Card.Group>
-          <Grid>
-            <Grid.Row columns={1}>
-                {this.renderItems()}      
-            </Grid.Row>
-          </Grid>
-        </Card.Group>
-      </div>
+      <StackGrid
+        columnWidth={250}
+      >
+        {this.renderItems()}
+
+      </StackGrid>
+
     )
   }
 }

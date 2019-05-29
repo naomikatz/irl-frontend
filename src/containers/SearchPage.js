@@ -58,7 +58,7 @@ handleSubmitNewItem = item => {
       {
         allItems: [...this.state.allItems, item]
       }, () => {
-        this.props.history.push(`/items/${id}`)
+        this.props.setCreatedItemState(item)
       })
 }
 
@@ -82,12 +82,23 @@ handleAddtoCollection = item => {
 handleViewMap = item => {
   console.log(item.users)
   console.log(this.props.currentUser.city)
+  console.log(this.props.currentUser.full_address)
   const nearbyUsers = item.users.filter(user => user.city.includes(this.props.currentUser.city))
   console.log(nearbyUsers)
   this.setState({
     nearbyUsers: nearbyUsers
   })
   }
+
+
+  handleViewItem = item => {
+    console.log(item)
+    this.setState({
+      selectedItem: item.id
+    }, () => {
+      this.props.setSelectedItemState(item)
+    })
+    }
 
 
   render() {
@@ -102,7 +113,7 @@ handleViewMap = item => {
           <div id="user-result-container">
             < UserSearchResultContainer nearbyUsers={this.state.nearbyUsers}/>
           </div>
-          < SearchContainer handleViewMap={this.handleViewMap} handleAddtoCollection={this.handleAddtoCollection} handleSearchChange={this.handleSearchChange} searchResultItems={this.state.searchResultItems} handleSubmitNewItem={this.handleSubmitNewItem}/>
+          < SearchContainer handleViewItem={this.handleViewItem} handleViewMap={this.handleViewMap} handleAddtoCollection={this.handleAddtoCollection} handleSearchChange={this.handleSearchChange} searchResultItems={this.state.searchResultItems} handleSubmitNewItem={this.handleSubmitNewItem}/>
       </div>
       </div>
     )

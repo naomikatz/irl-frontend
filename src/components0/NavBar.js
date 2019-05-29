@@ -36,9 +36,9 @@ render() {
         </Link>
 
           <Menu.Item
-            name={this.props.currentUser ? 'logout' : null}
+            name={this.props.currentUser ? 'logout' : 'login'}
             active={this.props.currentUser ? activeItem === 'Logout' : null}
-            onClick={this.props.currentUser ? this.props.logOut : null}
+            onClick={this.props.currentUser ? this.props.logOut : this.props.logIn}
           />
         </Menu.Menu>
       </Menu>

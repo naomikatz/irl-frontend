@@ -22,9 +22,11 @@ render(){
   return (
     <div className="user-container">
       <Grid>
+      <Grid.Row>
         <Grid.Column width={3}>
           {this.renderNearbyUsers()}
         </Grid.Column>
+</Grid.Row>
       </Grid>
     </div>
   )

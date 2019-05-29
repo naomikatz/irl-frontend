@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   min-height: 100%;
+
 }
 
 #navbar {
@@ -88,6 +89,7 @@
 .user-container {
   margin-top: 14px;
   margin-bottom: 10px;
+  width: 500px;
 }
 
 
@@ -131,6 +133,12 @@
 .item-card {
   padding-bottom: 15px;
   padding-left: 15px;
+}
+
+#dimmed-item-card {
+  margin-bottom: 15px;
+  margin-left: 15px;
+
 }
 
 #search-bar {
@@ -180,9 +188,9 @@
 }
 
 #filter-container{
-  /* margin-left: 500px;
-  margin-right: auto; */
-  height: 300px;
+  margin-left: 500px;
+  margin-right: auto;
+  height: 100px;
 }
 
 .user-item-profit-container{
@@ -230,4 +238,15 @@
   padding-top: 40px;
   margin-left: 200px;
   color: white;
+}
+
+#dropdown-select{
+  height: 100px;
+  width: 500px;
+}
+
+#checkbox-form{
+  height: 100px;
+  width: 150px;
+  padding-left: 10px;
 }

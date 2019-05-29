@@ -6,7 +6,7 @@ class ItemPage extends React.Component {
 
 	render(){
 		const { item } = this.props
-			console.log(item.item_name)
+			console.log(item)
 			return (
 				<Grid columns={2} centered>
 					<Grid.Column width={3}>
