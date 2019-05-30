@@ -3,6 +3,9 @@ import MyMap from '../components0/MyMap'
 import UserSearchResultContainer from './UserSearchResultContainer'
 import SearchContainer from './SearchContainer'
 import '../App.css';
+import { Container} from 'semantic-ui-react'
+import logo from '../logo2.png'
+import UserProfile from './UserProfile'
 
 
 
@@ -16,6 +19,7 @@ export default class SearchPage extends Component {
     originAddress: [],
     searchResultItems: [],
     itemId: null,
+    selectedUser: null
   }
 
 
@@ -83,7 +87,9 @@ handleViewMap = item => {
   console.log(item.users)
   console.log(this.props.currentUser.city)
   console.log(this.props.currentUser.full_address)
-  const nearbyUsers = item.users.filter(user => user.city.includes(this.props.currentUser.city))
+  const correctNearbyUsers = item.users.filter(user => user.city.includes(this.props.currentUser.city)).map(user => user.id)
+  const nearbyUsers = this.state.allUsers.filter(user => correctNearbyUsers.includes(user.id))
+  // set up a filter on the this.state.users object where it appears in
   console.log(nearbyUsers)
   this.setState({
     nearbyUsers: nearbyUsers
@@ -101,17 +107,30 @@ handleViewMap = item => {
     }
 
 
+    handleProfileClick = user => {
+      console.log(user)
+      this.setState({
+        selectedUser: user
+      }, () => {
+        this.props.handleProfileClick(user)
+      })
+      }
+
+
   render() {
-    const { currentUser } = this.props
-    console.log('we in da search page')
-    console.log(currentUser)
+    // const { currentUser } = this.props
+    console.log('we in da search page: this is where were making fetch happen', this.state)
+    // console.log(currentUser)
     return (
       <div className="search-page">
 
       <div>
+      <Container className="search-page-logo-container">
+        <img src={logo} alt={"logo"} className="search-logo"/>
+      </Container>
         < MyMap nearbyUsers={this.state.nearbyUsers} />
           <div id="user-result-container">
-            < UserSearchResultContainer nearbyUsers={this.state.nearbyUsers}/>
+            < UserSearchResultContainer handleProfileClick={this.handleProfileClick} nearbyUsers={this.state.nearbyUsers} />
           </div>
           < SearchContainer handleViewItem={this.handleViewItem} handleViewMap={this.handleViewMap} handleAddtoCollection={this.handleAddtoCollection} handleSearchChange={this.handleSearchChange} searchResultItems={this.state.searchResultItems} handleSubmitNewItem={this.handleSubmitNewItem}/>
       </div>

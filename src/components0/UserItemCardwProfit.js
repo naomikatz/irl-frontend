@@ -2,7 +2,7 @@ import React from 'react'
 import { Card, Image } from 'semantic-ui-react'
 import '../App.css';
 
-class UserItemCard extends React.Component {
+class UserItemCardwProfit extends React.Component {
 
 
   render(){
@@ -13,6 +13,7 @@ class UserItemCard extends React.Component {
           <Card.Content>
             <Image floated='left' size='tiny' src={this.props.item.item.image_url} />
             <Card.Header> {this.props.item.item.item_name} </Card.Header>
+            <Card.Meta>Profit: $50</Card.Meta>
           </Card.Content>
         </Card>
       </div>
@@ -20,4 +21,4 @@ class UserItemCard extends React.Component {
   }
 }
 
-export default UserItemCard
+export default UserItemCardwProfit

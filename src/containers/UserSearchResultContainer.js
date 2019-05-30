@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid } from 'semantic-ui-react'
+import { Grid, Container, Card } from 'semantic-ui-react'
 import AvatarCard from '../components0/AvatarCard'
 
 
@@ -8,11 +8,12 @@ class UserSearchResultContainer extends React.Component {
 renderNearbyUsers= () => {
   console.log(this.props.nearbyUsers)
     return this.props.nearbyUsers.map(user => {
-          console.log(user)
+          console.log("user in search results container", user)
           return < AvatarCard
                 key={user.id}
                 user={user}
                 handleUserCardClick={this.props.handleUserCardClick}
+                handleProfileClick={this.props.handleProfileClick}
             />
         })
       }
@@ -20,19 +21,19 @@ renderNearbyUsers= () => {
 
 render(){
   return (
-    <div className="user-container">
-      <Grid>
-      <Grid.Row>
-        <Grid.Column width={3}>
+
+        <Card.Group id="user-container">
+          <Grid>
+            <Grid.Row columns={5} >
           {this.renderNearbyUsers()}
-        </Grid.Column>
-</Grid.Row>
+        </Grid.Row>
       </Grid>
-    </div>
+      </Card.Group>
   )
 }
 
 }
+
 
 
 export default UserSearchResultContainer

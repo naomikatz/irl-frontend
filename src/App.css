@@ -56,6 +56,14 @@
   margin-top: 100px;
 }
 
+.search-page-logo-container {
+  height: 100px;
+  width: 50%;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  padding-bottom: 50px;
+}
+
 .Login {
   margin-top: 200px;
   /* margin-bottom: 300px; */
@@ -73,24 +81,17 @@
   color: red; */
 }
 
-#user-result-container {
-  position: relative;
-  width: auto;
-  height: auto;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  margin-right: 0px;
-  margin-left: 0px;
-  /* float: left; */
-  /* overflow-x: scroll; */
-
+.search-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 10vmin;
+  pointer-events: none;
+  -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(250, 250, 250, 0.1)));
+  /* -webkit-filter: drop-shadow(5px 5px 5px #222); */
+  filter: drop-shadow(10px 5px 5px #222);
+  /* mix-blend-mode: screen;
+  color: red; */
 }
 
-.user-container {
-  margin-top: 14px;
-  margin-bottom: 10px;
-  width: 500px;
-}
 
 
 
@@ -179,18 +180,26 @@
 
 #mapid{
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
   margin-left: auto;
   margin-right: auto;
   height: 400px;
   width: 800px;
   background-color: #000;
+  box-shadow:5px 5px 10px black;
 }
 
 #filter-container{
   margin-left: 500px;
   margin-right: auto;
-  height: 100px;
+  height: 40px;
+}
+
+#sort-container{
+  margin-left: 600px;
+  margin-right: auto;
+  height: 40px;
+  margin-bottom: 20px;
 }
 
 .user-item-profit-container{
@@ -205,6 +214,12 @@
   font-size: 30px;
 }
 
+#user-collection-title{
+  padding-bottom: 10px;
+  font-size: 30px;
+  padding-top:50px;
+}
+
 #useritemprofitfilter{
   padding-bottom: 30px;
 }
@@ -213,8 +228,25 @@
   margin-left: 200px;
 }
 
+#user-collection-container{
+  margin-left: 200px;
+}
+
+#user-container{
+  margin-left: 250px;
+}
+
+
 .user-item-card{
   padding-left: 10px;
+}
+
+.avatar-card{
+  padding-left: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin-bottom: 20px;
+
 }
 
 
@@ -249,4 +281,25 @@
   height: 100px;
   width: 150px;
   padding-left: 10px;
+}
+
+#item-gallery{
+  border-left: solid 70px transparent;
+   border-right: solid 70px transparent;
+   filter: drop-shadow(0 0 30px #333);
+   box-shadow:5px 5px 10px #333;
+}
+
+
+#nav-dropdown{
+  padding-top: 5px;
+}
+
+#metrics-container{
+
+  margin-top: 20px;
+  padding-top: 20px;
+  background: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .4));
+  height: 200px;
+
 }

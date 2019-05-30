@@ -10,7 +10,7 @@ import ProfilePage from './containers/ProfilePage'
 import MetricsPage from './containers/MetricsPage'
 import AccountPage from './containers/AccountPage'
 import ItemPage from './containers/ItemPage'
-
+import UserProfile from './containers/UserProfile'
 
 
 class App extends Component {
@@ -18,7 +18,9 @@ class App extends Component {
   state = {
   		currentUser: null,
       selectedItem: null,
-      selectedItemId: null
+      selectedItemId: null,
+      selectedUser: null,
+      selectedUserId: null
   	}
 
     logOut = () => {
@@ -80,6 +82,17 @@ class App extends Component {
   }
 
 
+  handleProfileClick = user => {
+    console.log("user in handle profile click", user)
+    this.setState({
+      selectedUser: user,
+      selectedUserId: user.id
+    }, () => {
+      this.props.history.push(`/users/${user.id}`)
+    })
+  }
+
+
 	setCurrentUser = (response) => {
 		this.setState({
 			currentUser: response.user
@@ -89,15 +102,20 @@ class App extends Component {
 		})
 	}
 
+
+
 render () {
     console.log('we heaaaa')
     return (
 
       <div className="App">
-        < NavBar className="navbar" currentUser={this.state.currentUser} logOut={this.logOut} logIn={this.logIn} />
+
+        <Route render={(routeProps) => {
+          return <NavBar {...routeProps} currentUser={this.state.currentUser} logOut={this.logOut} logIn={this.logIn}/>
+        }} />
         <Switch>
           <Route path='/search' render={(routeProps) => {
-            return <SearchPage {...routeProps} allItems={this.state.allItems} addItem={this.addItem} currentUser={this.state.currentUser} setCreatedItemState={this.setCreatedItemState}/>
+            return <SearchPage {...routeProps} handleProfileClick={this.handleProfileClick} allItems={this.state.allItems} addItem={this.addItem} currentUser={this.state.currentUser} setCreatedItemState={this.setCreatedItemState}/>
             }} />
           <Route path='/login' render={(routeProps) => {
 							return <LoginPage{...routeProps} setCurrentUser={this.setCurrentUser}/>
@@ -111,13 +129,16 @@ render () {
             <Route path='/metrics' render={(routeProps) => {
   							return <MetricsPage {...routeProps} currentUser={this.state.currentUser}/>
   						}} />
-            }} />
+
             <Route path='/account' render={(routeProps) => {
                 return <AccountPage {...routeProps} currentUser={this.state.currentUser}/>
               }} />
               <Route path='/items/:id' render={(routeProps) => {
                   return <ItemPage {...routeProps} currentUser={this.state.currentUser} item={this.state.selectedItem}/>
                 }} />
+                  <Route path='/users/:id' render={(routeProps) => {
+        							return <UserProfile {...routeProps} selectedUser={this.state.selectedUser}/>
+        						}} />
           <Route exact path='/' component={ HomePage } />
         </Switch>
         </div>

@@ -11,7 +11,6 @@ renderItems= () => {
   console.log(this.props.searchResultItems)
     return this.props.searchResultItems.map(item => {
 
-          console.log(item)
           return < ItemCard2
                 key={item.id}
                 item={item}
@@ -27,15 +26,20 @@ renderItems= () => {
 
   render(){
     return (
+      <div id="item-gallery">
       <StackGrid
         columnWidth={250}
+        id="stack-grid"
       >
         {this.renderItems()}
 
       </StackGrid>
+      </div>
 
     )
   }
 }
+
+
 
 export default ItemSearchResultsContainer

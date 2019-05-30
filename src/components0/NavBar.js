@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Menu } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
+import UserIcon from './UserIcon.js'
+
 
 export default class NavBar extends Component {
 
@@ -27,18 +29,15 @@ render() {
           onClick={this.handleItemClick}
         />
         <Menu.Menu position='right'>
-        <Link to='/profile'>
-        <Menu.Item
-          name={this.props.currentUser ? this.props.currentUser.name : null}
-          active={this.props.currentUser ? activeItem === 'Current User' : null}
-          onClick={this.handleItemClick}
-        />
-        </Link>
+        
+
+        {this.props.currentUser ? <UserIcon {...this.props} currentUser={this.props.currentUser}  logOut={this.props.logOut} /> : 'login' }
 
           <Menu.Item
-            name={this.props.currentUser ? 'logout' : 'login'}
-            active={this.props.currentUser ? activeItem === 'Logout' : null}
-            onClick={this.props.currentUser ? this.props.logOut : this.props.logIn}
+            name={this.props.currentUser ? null : 'login'}
+            active={this.props.currentUser ? activeItem === null : 'Login'}
+            onClick={this.props.currentUser ? null : this.props.logIn}
+
           />
         </Menu.Menu>
       </Menu>

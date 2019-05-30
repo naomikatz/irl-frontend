@@ -1,19 +1,18 @@
 import React from 'react'
 import { Grid, Card } from 'semantic-ui-react'
-import UserItemCardwProfit from "../components0/UserItemCardwProfit"
+import UserItemCard from "../components0/UserItemCard"
 import ItemFilterContainer from './ItemFilterContainer'
-import ItemSortContainer from './ItemSortContainer'
 
 
 
 
-class UserItemProfitContainer extends React.Component {
+class UserCollectionContainer extends React.Component {
 
   renderItems= () => {
-    console.log(this.props)
+    console.log("in the user collection container", this.props)
       return this.props.currentUser.user_items.map(item => {
             console.log(item)
-            return < UserItemCardwProfit
+            return < UserItemCard
                   key={item.id}
                   item={item}
 
@@ -22,13 +21,13 @@ class UserItemProfitContainer extends React.Component {
       }
 
 
+
+
 	render(){
 		return (
-        <div className="user-item-profit-container">
-        <div id="useritemprofittitle" > My Items </div>
+        <div className="user-collection-container">
+        <div id="user-collection-title" > {this.props.currentUser.name}'s Items </div>
         < ItemFilterContainer />
-        < ItemSortContainer id="useritemprofitfilter" />
-
           <Card.Group id="profit-item-card-container">
             <Grid>
               <Grid.Row columns={1} >
@@ -42,4 +41,4 @@ class UserItemProfitContainer extends React.Component {
 
 }
 
-export default UserItemProfitContainer
+export default UserCollectionContainer

@@ -17,7 +17,7 @@ export default class SearchContainer extends Component {
                 < SearchForm handleSearchChange={this.props.handleSearchChange} className="search-form"/>
                 < NewItemModal handleSubmitNewItem={this.props.handleSubmitNewItem}/>
                 < ItemFilterContainer />
-                < ItemSearchResultContainer handleViewItem={this.props.handleViewItem} handleViewMap={this.props.handleViewMap} handleAddtoCollection={this.props.handleAddtoCollection} searchResultItems={this.props.searchResultItems}/>
+                < ItemSearchResultContainer  handleViewItem={this.props.handleViewItem} handleViewMap={this.props.handleViewMap} handleAddtoCollection={this.props.handleAddtoCollection} searchResultItems={this.props.searchResultItems}/>
               </div>
           </div>
       </div>

@@ -6,11 +6,13 @@ class MetricsContainer extends React.Component {
 
 	render(){
 		return (
-			<div>
+			<div id="metrics-container">
 				<StatContainer />
-				<Link to='/metrics' currentUser={this.props.currentUser}>
-				<div> See more metrics </div>
-				</Link>
+				{this.props.currentUser ?
+					<Link to='/metrics' currentUser={this.props.currentUser}>
+						<div>See more metrics</div>
+					</Link>
+				: null}
 			</div>
 		)
 	}
